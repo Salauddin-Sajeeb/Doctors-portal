@@ -1,0 +1,13 @@
+.banner
+{
+background-image: url('https://images.pexels.com/photos/7615560/pexels-photo-7615560.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940');
+background-repeat: no-repeat;
+background-position: center;
+width: 100%;
+height: 80vh;
+
+}
+.title
+{
+    font-weight: 800;
+}
