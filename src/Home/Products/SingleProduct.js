@@ -13,7 +13,7 @@ const SingleProduct = ({ product }) => {
                 <h6>Price : $ {price}</h6>
                 <p>Description: {description.substring(0, 30)}</p>
                 <Link to={`/products/${key}`}>
-                    <button>Buy:{name} </button>
+                    <button>Buy: {name} </button>
                 </Link>
             </div>
         </div>

@@ -9,7 +9,7 @@ const Login = () => {
 
     const location = useLocation();
     const history = useHistory();
-    console.log('came from', location.state?.from)
+
     const redirect_url = location.state?.from || '/home';
     const handleGoogleSignIn = () => {
         signInGoogle()
@@ -25,7 +25,7 @@ const Login = () => {
                 <h2>Please Log In</h2>
                 <input onBlur={handleEmailchange} type="email" placeholder="please enter your mail" /> <br /> <br />
                 <input onBlur={handlePassword} type="password" placeholder="password" /> <br /> <br />
-                {user.name ?
+                {user.email ?
                     <button type="submit" className="btn-dark mx-2" >Log In</button> :
                     <button type="submit" className="btn-dark mx-2" >Register</button>
                 }

@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router';
+import '../product.css'
 
 const Details = () => {
     const { pd } = useParams()
@@ -20,8 +21,12 @@ const Details = () => {
 
     return (
         <div>
-            <img src={singledetail?.img} alt="" />
-            <h5>this is id{pd}</h5>
+            <div>
+                <h4 className="mt-5">{singledetail?.name}</h4>
+                <img className="image" src={singledetail?.img} alt="" />
+                <h5 className="mt-4">{singledetail?.description}</h5>
+
+            </div>
 
 
         </div>
