@@ -4,7 +4,7 @@ import './banner.css'
 const Banner = () => {
     return (
         <div>
-            <div className="banner mt-4 d-flex justify-content-center align-items-center">
+            <div className="banner  d-flex justify-content-center align-items-center">
                 <div className="container">
                     <div className="row">
                         <div className="col-md-10">
