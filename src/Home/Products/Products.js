@@ -13,10 +13,10 @@ const Products = () => {
     }, [])
 
     return (
-        <div className="">
-            <h1 className="border-round">Our Products</h1>
+        <div>
+            <div className="rounded-pill w-100 border border-dark text-center p-3 my-3 "><h1 id="products" className="text-center">Our Products</h1></div>
             <div className="container body-container">
-                <div className="container-product">
+                <div className="container-product mt-5">
 
                     {
                         products.map(product => <SingleProduct

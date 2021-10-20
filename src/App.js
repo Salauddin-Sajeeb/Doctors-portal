@@ -10,6 +10,8 @@ import Register from './Home/Login/Refister';
 import Details from './Home/Products/ProductDetails/Details';
 import Error from './Home/ErrorPage/Error';
 import PrivateRoute from './Home/Login/Private Route/PrivateRoute';
+import Purchase from './Home/Feedback/Purchase';
+import Feedback from './Home/Feedback/Feedback';
 
 
 function App() {
@@ -34,6 +36,12 @@ function App() {
             </Route>
             <PrivateRoute path="/products/:pd">
               <Details></Details>
+            </PrivateRoute>
+            <PrivateRoute path="/purchase">
+              <Purchase></Purchase>
+            </PrivateRoute>
+            <PrivateRoute path="/feedback">
+              <Feedback></Feedback>
             </PrivateRoute>
             <Route path="*">
               <Error></Error>

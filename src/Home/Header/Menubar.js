@@ -1,7 +1,9 @@
 import React from 'react';
 import { Button, Container, Nav, Navbar } from 'react-bootstrap';
-import { NavLink } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
+import { HashLink } from 'react-router-hash-link';
 import useAuth from '../../Hooks/useAuth';
+
 
 import './menubar.css'
 const Menubar = () => {
@@ -26,11 +28,12 @@ const Menubar = () => {
                                             <Nav className="me-auto">
                                                 <NavLink className="navlink mx-2 pt-2" to="/home">Home</NavLink>
 
-                                                <NavLink className="navlink mx-2 pt-2" to="/products">Products</NavLink>
+                                                <Nav.Link as={HashLink} to="/home#products">Products</Nav.Link>
                                                 {user?.email ?
                                                     <Button onClick={logout} variant="light">Logout</Button>
                                                     : <NavLink className="navlink mx-2 pt-2" to="/login">Login</NavLink>
                                                 }
+                                                <Link className="navlink mx-2 pt-2" to="/feedback">FeedBack</Link>
                                             </Nav>
                                             <Navbar.Collapse className="justify-content-end">
                                                 <Navbar.Text>

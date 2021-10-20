@@ -13,7 +13,10 @@ const SingleProduct = ({ product }) => {
                 <h6>Price : $ {price}</h6>
                 <p>Description: {description.substring(0, 30)}</p>
                 <Link to={`/products/${key}`}>
-                    <button>Buy: {name} </button>
+                    <button className="btn-warning mb-2">See Details </button>
+                </Link> <br />
+                <Link to="/Purchase">
+                    <button className="btn-primary">Purchase now!</button>
                 </Link>
             </div>
         </div>
