@@ -6,53 +6,38 @@ firebaseAuth();
 const useFirebase = () => {
 
     const auth = getAuth();
-    const [user, setUser] = useState('')
-    const [email, setEmail] = useState('')
-    const [password, setPassword] = useState('')
-    const [error, setError] = useState([])
-    const [isLogin, setIsLogin] = useState(false)
+    const [user, setUser] = useState({})
+    const [error, setError] = useState({})
+
 
     const [isLoading, setIsloading] = useState(true)
 
     const googleProvider = new GoogleAuthProvider();
 
-    //input email
-    const handleEmailchange = e => {
-        setEmail(e.target.value)
-    }
 
-    //password
-    const handlePassword = e => {
-        setPassword(e.target.value)
-    }
-
-    //Register
-    const handleRegister = e => {
-        e.preventDefault();
-        if (password.length < 6) {
-
-            setError('password Must be atleast 6 characters ')
-            return;
-        }
-
-        if (isLogin) {
-            processLogin(email, password);
-        }
-        else {
-            CreatwNewUser(email, password);
-        }
-
-    }
     //new user creation
-    const CreatwNewUser = (email, password) => {
+    const RegisterUser = (email, password, name, history) => {
         createUserWithEmailAndPassword(auth, email, password)
 
             .then(result => {
-                const user = result.user;
-                console.log(user);
-                setError('')
+                const NewUser = { email, displayName: name };
+                setUser(NewUser);
+                console.log(user)
+
                 // setUserName();
 
+                //Update name
+                updateProfile(auth.currentUser, {
+                    displayName: name
+                }).then(() => {
+                    // Profile updated!
+                    // ...
+                }).catch((error) => {
+                    // An error occurred
+                    // ...
+                });
+
+                history.replace('/');
             })
             .catch((error) => {
                 const errorCode = error.code;
@@ -63,17 +48,25 @@ const useFirebase = () => {
             });
     }
     //login
-    const processLogin = (email, password) => {
+    const Loginuser = (email, password, location, history) => {
+
         signInWithEmailAndPassword(auth, email, password)
-            .then(result => {
-                const user = result.user;
-                console.log(user)
-                setError('')
+
+            .then((userCredential) => {
+
+                // Signed in 
+                const user = userCredential.user;
+                const destination = location?.state?.from || '/';
+                history.push(destination)
+                // ...
+
             })
-            .catch(error => {
+            .catch((error) => {
                 setError(error.message)
-            })
+            });
+
     }
+
 
     const signInGoogle = () => {
         setIsloading(true);
@@ -110,7 +103,7 @@ const useFirebase = () => {
 
 
     return {
-        error, user, logout, signInGoogle, isLoading, handleEmailchange, handleRegister, handlePassword
+        error, user, Loginuser, logout, signInGoogle, isLoading, RegisterUser,
     }
 
 };
