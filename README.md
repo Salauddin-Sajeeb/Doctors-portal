@@ -6,7 +6,7 @@ This is an medical equipment website where user can purchase product
 
  🔗 Links
  
- Github Link: (https://github.com/Programming-Hero-Web-Course3/healthcare-related-website-Salauddin-Sajeeb)
+ Github Link: (https://github.com/Salauddin-Sajeeb/E-medical--equipment)
 
 Website Live Link : https://e-medical-7bb39.web.app/
   
